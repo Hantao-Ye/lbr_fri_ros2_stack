@@ -24,9 +24,10 @@ class LBRBaseTorqueCommandNode(Node):
         ).integer_value
         self._dt = 1.0 / float(self._update_rate)
 
-        self._lbr_state_sub = self.create_subscription(
-            LBRState, "state", self._on_lbr_state, 1
-        )
+        # self._lbr_state_sub = self.create_subscription(
+        #     LBRState, "state", self._on_lbr_state, 1
+        # )
+        self._lbr_state_sub = None
         self._lbr_torque_command_pub = self.create_publisher(
             LBRTorqueCommand,
             "command/torque",
